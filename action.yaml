@@ -1,0 +1,30 @@
+name: Orca Qualys scan
+description: Composite action for orca qualys scan
+author: DA Team <da.team@sherwin.com>
+
+inputs: 
+  config_id:
+    required: true
+    description: Provide the orca config id for Qualys
+    
+  orca_api_key:
+    required: true
+    description: Provide Orca API KEY
+  
+  orca_url:
+    required: false
+    default: 'https://orca.sherwin.com'
+    
+runs:
+  using: "composite"
+  steps: 
+    - name: Orca HTTP Request Action
+      id: post
+      uses: fjogeleit/http-request-action@v1.8.1
+      with:
+        url: '${{ input.orca_url }}/config/${{ inputs.config_id }}/exec'
+        method: 'POST'
+        bearerToken: '${{ inputs.orca_api_key }}'
+        
+     - name: Show Response
+       run: echo ${{ steps.post.outputs.response }}
