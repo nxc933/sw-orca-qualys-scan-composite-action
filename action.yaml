@@ -25,7 +25,7 @@ runs:
         url: ${{ inputs.orca_url }}/config/${{ inputs.config_id }}/exec
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
-        
+        timeout: 60000
     - name: Show Response
       run: echo ${{ steps.post.outputs.response }}
       shell: bash
