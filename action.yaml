@@ -28,6 +28,7 @@ runs:
         
      - name: Show Response
        run: echo ${{ steps.post.outputs.response }}
+       shell: bash
 branding:
   icon: git-branch
   color: white
