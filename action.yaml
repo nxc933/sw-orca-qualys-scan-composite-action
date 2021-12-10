@@ -22,7 +22,7 @@ runs:
       id: post
       uses: fjogeleit/http-request-action@v1.8.1
       with:
-        url: '${{ input.orca_url }}/config/${{ inputs.config_id }}/exec'
+        url: '${{ inputs.orca_url }}/config/${{ inputs.config_id }}/exec'
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
         
