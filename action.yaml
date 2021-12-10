@@ -15,9 +15,19 @@ inputs:
     required: false
     default: 'https://orca.sherwin.com'
     
+  request_timeout: 
+    required: false
+    default: 20000
+    description: Provide the http requst timeout. Defaults to 20s
+   
+ outputs:
+   response: 
+      description: Orca Qualys scan Http response 
+      value: ${{ steps.post.outputs.response }}
 runs:
   using: "composite"
   steps: 
+  
     - name: Orca HTTP Request Action
       id: post
       uses: fjogeleit/http-request-action@v1.8.1
@@ -25,10 +35,12 @@ runs:
         url: ${{ inputs.orca_url }}/config/${{ inputs.config_id }}/exec
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
-        timeout: 60000
-    - name: Show Response
-      run: echo ${{ steps.post.outputs.response }}
-      shell: bash
+        timeout: ${{ inputs.request_timeout }}
+        
+#     - name: Show Response
+#       run: echo ${{ steps.post.outputs.response }}
+#       shell: bash
+      
 branding:
   icon: git-branch
   color: white
