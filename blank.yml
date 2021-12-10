@@ -1,0 +1,27 @@
+name: Test Orca/Qualys
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: sw-ubuntu-latest
+    
+    steps:
+#     - uses: actions/checkout@v2
+#     - name: Create archive
+#       run: |
+#         zip -r testVeracodeBodgit.zip .
+    
+    - name: HTTP Request Action
+      id: post
+      uses: fjogeleit/http-request-action@v1.8.1
+      with:
+        url: 'https://orca.sherwin.com/config/48/exec'
+        method: 'POST'
+        bearerToken: '${{ secrets.QUALYS_BEARER_TOKEN }}'
+       # contentType: 'multipart/form-data'
+       # customHeaders: '{	"Content-Type": "multipart/form-data","cache-control": "no-cache"}'
+       # files: '{ "file": "${{ github.workspace }}/testVeracodeBodgit.zip" }'
+        timeout: 60000
+    
+    - name: Show Response
+      run: echo ${{ steps.post.outputs.response }}
