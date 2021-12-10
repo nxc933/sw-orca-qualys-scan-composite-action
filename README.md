@@ -8,6 +8,12 @@ Name | Type |   | Default | Note |
 `orca_url` | String | *Optional* | `https://orca.sherwin.com` | 
 `request_timeout` | Integer | *Optional* | `20000` | 
 
+### Response
+
+| Variable |  Description  |
+|---|---|
+`response` | Response as JSON String
+
 Usage:
 
 ```yaml
@@ -17,6 +23,5 @@ Usage:
      orca_api_key: '${{ secrets.BEARER_TOKEN }}'
      # Optional
      # orca_url: 'https://orca.sherwin.com'
-     # request_timeout: '20000'
-     
+     # request_timeout: '20000'     
 ```
