@@ -26,9 +26,9 @@ runs:
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
         
-     - name: Show Response
-       run: echo ${{ steps.post.outputs.response }}
-       shell: bash
+    - name: Show Response
+      run: echo ${{ steps.post.outputs.response }}
+      shell: bash
 branding:
   icon: git-branch
   color: white
