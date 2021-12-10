@@ -20,10 +20,10 @@ inputs:
     default: 20000
     description: Provide the http requst timeout. Defaults to 20s
    
- outputs:
-   response: 
-      description: Orca Qualys scan Http response 
-      value: ${{ steps.post.outputs.response }}
+outputs:
+  response: 
+     description: Orca Qualys scan Http response 
+     value: ${{ steps.post.outputs.response }}
 runs:
   using: "composite"
   steps: 
