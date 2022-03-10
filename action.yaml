@@ -13,7 +13,7 @@ inputs:
   
   orca_url:
     required: false
-    default: 'https://orca.sherwin.com'
+    default: 'https://orca.sherwin.com/api/v2/task/'
     
   request_timeout: 
     required: false
@@ -30,9 +30,10 @@ runs:
   
     - name: Orca HTTP Request Action
       id: post
-      uses: fjogeleit/http-request-action@v1.8.1
+      uses: fjogeleit/http-request-action@v1.9.1
       with:
-        url: ${{ inputs.orca_url }}/config/${{ inputs.config_id }}/exec
+        url: ${{ inputs.orca_url }}
+        data: {"config": ${{ inputs.config_id }} }
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
         timeout: ${{ inputs.request_timeout }}
