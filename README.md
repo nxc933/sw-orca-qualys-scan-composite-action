@@ -7,7 +7,7 @@ Name | Type |   | Default | Note |
 |--- | ---- |---| ------- | ---- |
 `config_id` | Integer | Required* | 
 `orca_api_key` | Secret | Required* | 
-`orca_url` | String | *Optional* | `https://orca.sherwin.com` | 
+`orca_url` | String | *Optional* | `https://orca.sherwin.com/api/v2/task/` | 
 `request_timeout` | Integer | *Optional* | `20000` | 
 
 ### Response
@@ -21,9 +21,9 @@ Usage:
 ```yaml
  - uses: sherwin-williams-co/sw-orca-qualys-scan-composite-action@main
    with:
-     config_id: 46
+     config_id: 2
      orca_api_key: '${{ secrets.BEARER_TOKEN }}'
      # Optional
-     # orca_url: 'https://orca.sherwin.com'
+     # orca_url: 'https://orca.sherwin.com/api/v2/task/'
      # request_timeout: '20000'     
 ```
