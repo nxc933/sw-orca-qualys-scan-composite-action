@@ -35,7 +35,8 @@ runs:
         url: ${{ inputs.orca_url }}
         data: 'body: {"config":"${{ inputs.config_id }}"}'
         method: 'POST'
-        customHeaders: '{"Authorization": "${{ inputs.orca_api_key }}", "Content-Type": "application/json"}'
+        contentType: 'application/json'
+        customHeaders: '{"Authorization": ${{ inputs.orca_api_key }}}'
         timeout: ${{ inputs.request_timeout }}
         
 #     - name: Show Response
