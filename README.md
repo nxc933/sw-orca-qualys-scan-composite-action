@@ -19,7 +19,7 @@ Name | Type |   | Default | Note |
 Usage:
 
 ```yaml
- - uses: sherwin-williams-co/sw-orca-qualys-scan-composite-action@main
+ - uses: sherwin-williams-co/sw-orca-qualys-scan-composite-action@v2.0
    with:
      config_id: 2
      orca_api_key: '${{ secrets.API_TOKEN }}'
