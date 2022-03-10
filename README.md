@@ -22,7 +22,7 @@ Usage:
  - uses: sherwin-williams-co/sw-orca-qualys-scan-composite-action@main
    with:
      config_id: 2
-     orca_api_key: '${{ secrets.BEARER_TOKEN }}'
+     orca_api_key: '${{ secrets.API_TOKEN }}'
      # Optional
      # orca_url: 'https://orca.sherwin.com/api/v2/task/'
      # request_timeout: '20000'     
