@@ -33,7 +33,7 @@ runs:
       uses: fjogeleit/http-request-action@v1.9.1
       with:
         url: ${{ inputs.orca_url }}
-        data: {"config": "${{ inputs.config_id }}"}
+        data: 'body: {"config": ${{ inputs.config_id }} }'
         method: 'POST'
         bearerToken: '${{ inputs.orca_api_key }}'
         timeout: ${{ inputs.request_timeout }}
