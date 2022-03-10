@@ -33,7 +33,7 @@ runs:
       uses: fjogeleit/http-request-action@v1.9.1
       with:
         url: ${{ inputs.orca_url }}
-        data: 'body: {"config":"${{ inputs.config_id }}"}'
+        data: 'body: {"config":${{ inputs.config_id }}}'
         method: 'POST'
         contentType: 'application/json'
         customHeaders: '{"Authorization":"${{ inputs.orca_api_key }}"}'
