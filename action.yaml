@@ -17,8 +17,8 @@ inputs:
     
   request_timeout: 
     required: false
-    default: 20000
-    description: Provide the http requst timeout. Defaults to 20s
+    default: 180000
+    description: Provide the http requst timeout. Defaults to 180s
    
 outputs:
   response: 
